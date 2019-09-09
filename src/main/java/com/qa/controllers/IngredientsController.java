@@ -1,7 +1,7 @@
 package com.qa.controllers;
 
 import com.qa.models.Ingredients;
-import com.qa.repository.HubbleBubbleRepository;
+import com.qa.repository.IngredientsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class IngredientsController {
 
     @Autowired
-    private HubbleBubbleRepository repo;
+    private IngredientsRepository repo;
 
     @RequestMapping(value = "ingredient", method = RequestMethod.GET)
     public List<Ingredients> listAllIngredients(){
