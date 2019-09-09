@@ -1,38 +1,37 @@
 package com.qa.controllers;
 
-import com.qa.models.Note;
-import com.qa.repository.NotesRepository;
+import com.qa.models.Ingredients;
+import com.qa.repository.HubbleBubbleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin
-public class NotesController {
+public class IngredientsController {
 
     @Autowired
-    private NotesRepository repo;
+    private HubbleBubbleRepository repo;
 
     @RequestMapping(value = "notes", method = RequestMethod.GET)
-    public List<Note> listAllNotes(){
+    public List<Ingredients> listAllNotes(){
         return repo.findAll();
     }
 
     @RequestMapping(value = "notes", method = RequestMethod.POST)
-    public Note addNote(@RequestBody Note note){
-        return repo.saveAndFlush(note);
+    public Ingredients addNote(@RequestBody Ingredients ingredients){
+        return repo.saveAndFlush(ingredients);
     }
 
     @RequestMapping(value = "notes/{id}", method = RequestMethod.GET)
-    public Note getNote(@PathVariable Long id){
+    public Ingredients getNote(@PathVariable Long id){
         return repo.findOne(id);
     }
 
     @RequestMapping(value = "notes/{id}", method = RequestMethod.DELETE)
-    public Note deleteNote(@PathVariable Long id){
-        Note existing = repo.findOne(id);
+    public Ingredients deleteNote(@PathVariable Long id){
+        Ingredients existing = repo.findOne(id);
         repo.delete(existing);
         return existing;
     }

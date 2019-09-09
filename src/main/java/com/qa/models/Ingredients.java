@@ -6,11 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Note {
+public class Ingredients {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    String name;
+    String ingredient;
     String description;
 
     public Long getId() {
@@ -21,12 +21,12 @@ public class Note {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getIngredient() {
+        return ingredient;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
     }
 
     public String getDescription() {
