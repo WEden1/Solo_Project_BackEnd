@@ -14,22 +14,22 @@ public class IngredientsController {
     @Autowired
     private HubbleBubbleRepository repo;
 
-    @RequestMapping(value = "notes", method = RequestMethod.GET)
-    public List<Ingredients> listAllNotes(){
+    @RequestMapping(value = "ingredients", method = RequestMethod.GET)
+    public List<Ingredients> listAllIngredients(){
         return repo.findAll();
     }
 
-    @RequestMapping(value = "notes", method = RequestMethod.POST)
+    @RequestMapping(value = "ingredients", method = RequestMethod.POST)
     public Ingredients addNote(@RequestBody Ingredients ingredients){
         return repo.saveAndFlush(ingredients);
     }
 
-    @RequestMapping(value = "notes/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "ingredients/{id}", method = RequestMethod.GET)
     public Ingredients getNote(@PathVariable Long id){
         return repo.findOne(id);
     }
 
-    @RequestMapping(value = "notes/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "ingredients/{id}", method = RequestMethod.DELETE)
     public Ingredients deleteNote(@PathVariable Long id){
         Ingredients existing = repo.findOne(id);
         repo.delete(existing);
