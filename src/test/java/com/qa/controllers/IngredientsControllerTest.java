@@ -36,10 +36,11 @@ import java.util.List;
 
         @Test
         public void testGetAllIngredients(){
+            ArrayList<String> food = new ArrayList<String>();
             List<Ingredients> ingredientsList = new ArrayList<>();
             Ingredients ingredients = new Ingredients();
-            ingredients.setAmount("22");
-            ingredients.setIngredient("Apple");
+            ingredients.setAmount(22);
+            ingredients.setIngredients(food);
 
             when(repo.findAll()).thenReturn(ingredientsList);
             ingredientsController.listAllIngredients();
@@ -47,8 +48,9 @@ import java.util.List;
 
         @Test
         public void testGetIngredients(){
+            ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredients = new Ingredients();
-            ingredients.setIngredient("bannana");
+            ingredients.setIngredients(food);
 
             when(repo.findOne(1L)).thenReturn(ingredients);
             ingredientsController.getIngredients(1L);
@@ -56,8 +58,9 @@ import java.util.List;
 
         @Test
         public void testDeleteIngredients(){
+            ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredients = new Ingredients();
-            ingredients.setIngredient("bamnnana");
+            ingredients.setIngredients(food);
             repo.findOne(1L);
             ingredientsController.deleteIngredients(1L);
             when(!repo.exists(1L)).thenReturn(true);
@@ -65,8 +68,9 @@ import java.util.List;
 
         @Test
         public void testAddIngredients(){
+            ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredient = new Ingredients();
-            ingredient.setIngredient("apple");
+            ingredient.setIngredients(food);
             ingredientsController.addIngredients(ingredient);
             when(repo.exists(1L)).thenReturn(true);
         }
