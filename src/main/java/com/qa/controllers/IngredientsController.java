@@ -20,17 +20,17 @@ public class IngredientsController {
     }
 
     @RequestMapping(value = "ingredient", method = RequestMethod.POST)
-    public Ingredients addNote(@RequestBody Ingredients ingredients){
+    public Ingredients addIngredients(@RequestBody Ingredients ingredients){
         return repo.saveAndFlush(ingredients);
     }
 
     @RequestMapping(value = "ingredient/{id}", method = RequestMethod.GET)
-    public Ingredients getNote(@PathVariable Long id){
+    public Ingredients getIngredients(@PathVariable Long id){
         return repo.findOne(id);
     }
 
     @RequestMapping(value = "ingredient/{id}", method = RequestMethod.DELETE)
-    public Ingredients deleteNote(@PathVariable Long id){
+    public Ingredients deleteIngredients(@PathVariable Long id){
         Ingredients existing = repo.findOne(id);
         repo.delete(existing);
         return existing;
