@@ -4,14 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
 
 @Entity
 public class Ingredients {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    String ingredient;
-    String amount;
+    ArrayList<String> ingredients = new ArrayList<String>();
+    int amount;
 
     public Long getId() {
         return id;
@@ -21,19 +22,19 @@ public class Ingredients {
         this.id = id;
     }
 
-    public String getIngredient() {
-        return ingredient;
+    public ArrayList<String> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredient(String ingredient) {
-        this.ingredient = ingredient;
+    public void setIngredients(ArrayList<String> ingredients) {
+        this.ingredients = ingredients;
     }
 
-    public String getAmount() {
-        return amount;
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
+//    public int getAmount() {
+//        return amount;
+//    }
+//
+//    public void setAmount(int amount) {
+//        this.amount = amount;
+//    }
 }

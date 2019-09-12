@@ -25,7 +25,7 @@ public class Spells {
         return spell;
     }
 
-    public void setIngredient(String ingredient) {
+    public void setSpell(String spell) {
         this.spell = spell;
     }
 
