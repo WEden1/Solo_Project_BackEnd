@@ -40,7 +40,7 @@ import java.util.List;
             List<Ingredients> ingredientsList = new ArrayList<>();
             Ingredients ingredients = new Ingredients();
             ingredients.setAmount(22);
-            ingredients.setIngredients(food);
+            ingredients.setIngredient1("apple");
 
             when(repo.findAll()).thenReturn(ingredientsList);
             ingredientsController.listAllIngredients();
@@ -50,7 +50,7 @@ import java.util.List;
         public void testGetIngredients(){
             ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredients = new Ingredients();
-            ingredients.setIngredients(food);
+            ingredients.setIngredient2("bannana");
 
             when(repo.findOne(1L)).thenReturn(ingredients);
             ingredientsController.getIngredients(1L);
@@ -60,7 +60,7 @@ import java.util.List;
         public void testDeleteIngredients(){
             ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredients = new Ingredients();
-            ingredients.setIngredients(food);
+            ingredients.setIngredient3("carrot");
             repo.findOne(1L);
             ingredientsController.deleteIngredients(1L);
             when(!repo.exists(1L)).thenReturn(true);
@@ -70,7 +70,7 @@ import java.util.List;
         public void testAddIngredients(){
             ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredient = new Ingredients();
-            ingredient.setIngredients(food);
+            ingredient.setIngredient1("foot");
             ingredientsController.addIngredients(ingredient);
             when(repo.exists(1L)).thenReturn(true);
         }
