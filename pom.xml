@@ -12,13 +12,13 @@
 
 	<groupId>com.qa</groupId>
 
-	<artifactId>notes</artifactId>
+	<artifactId>Solo_Project_BackEnd</artifactId>
 
 	<version>0.0.1</version>
 
-	<name>notes</name>
+	<name>Solo</name>
 
-	<description>Demo project for video</description>
+	<description></description>
 
 	<properties>
 		<java.version>1.8</java.version>
