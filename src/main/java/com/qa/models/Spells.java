@@ -9,9 +9,9 @@ import javax.persistence.Id;
 public class Spells {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-    String spell;
-    String description;
+    private Long id;
+    private String spell;
+    private String description;
 
     public Long getId() {
         return id;

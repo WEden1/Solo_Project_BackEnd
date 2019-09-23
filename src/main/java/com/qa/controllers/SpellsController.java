@@ -1,7 +1,6 @@
 package com.qa.controllers;
 
 import com.qa.models.Spells;
-import com.qa.repository.IngredientsRepository;
 import com.qa.repository.SpellsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,7 @@ import java.util.List;
 public class SpellsController {
 
     @Autowired
-    private SpellsRepository repo;
+    public SpellsRepository repo;
 
     @RequestMapping(value = "spells", method = RequestMethod.GET)
     public List<Spells> listAllSpells(){

@@ -9,11 +9,11 @@ import javax.persistence.Id;
 public class Ingredients {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-    String ingredient1;
-    String ingredient2;
-    String ingredient3;
-    int amount;
+    private Long id;
+    private String ingredient1;
+    private String ingredient2;
+    private String ingredient3;
+    private int amount;
 
     public String getIngredient1() {
         return ingredient1;

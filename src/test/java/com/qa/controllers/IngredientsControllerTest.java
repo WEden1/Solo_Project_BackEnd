@@ -10,14 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
+//import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.mockito.Mockito.when;
 
 
 @RunWith(SpringRunner.class)
@@ -41,7 +40,7 @@ import java.util.List;
             List<Ingredients> ingredientsList = new ArrayList<>();
             Ingredients ingredients = new Ingredients();
             ingredients.setAmount(22);
-            ingredients.setIngredients(food);
+            ingredients.setIngredient1("dog");
 
             when(repo.findAll()).thenReturn(ingredientsList);
             ingredientsController.listAllIngredients();
@@ -51,7 +50,7 @@ import java.util.List;
         public void testGetIngredients(){
             ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredients = new Ingredients();
-            ingredients.setIngredients(food);
+            ingredients.setIngredient1("apple");
 
             when(repo.findOne(1L)).thenReturn(ingredients);
             ingredientsController.getIngredients(1L);
@@ -61,7 +60,7 @@ import java.util.List;
         public void testDeleteIngredients(){
             ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredients = new Ingredients();
-            ingredients.setIngredients(food);
+            ingredients.setIngredient1("apple");
             repo.findOne(1L);
             ingredientsController.deleteIngredients(1L);
             when(!repo.exists(1L)).thenReturn(true);
@@ -71,7 +70,7 @@ import java.util.List;
         public void testAddIngredients(){
             ArrayList<String> food = new ArrayList<String>();
             Ingredients ingredient = new Ingredients();
-            ingredient.setIngredients(food);
+            ingredient.setIngredient2("cat");
             ingredientsController.addIngredients(ingredient);
             when(repo.exists(1L)).thenReturn(true);
         }
