@@ -14,22 +14,22 @@ public class IngredientsController {
     @Autowired
     private IngredientsRepository repo;
 
-    @RequestMapping(value = "ingredient", method = RequestMethod.GET)
+    @RequestMapping(value = "ingredients", method = RequestMethod.GET)
     public List<Ingredients> listAllIngredients(){
         return repo.findAll();
     }
 
-    @RequestMapping(value = "ingredient", method = RequestMethod.POST)
+    @RequestMapping(value = "ingredients", method = RequestMethod.POST)
     public Ingredients addIngredients(@RequestBody Ingredients ingredients){
         return repo.saveAndFlush(ingredients);
     }
 
-    @RequestMapping(value = "ingredient/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "ingredients/{id}", method = RequestMethod.GET)
     public Ingredients getIngredients(@PathVariable Long id){
         return repo.findOne(id);
     }
 
-    @RequestMapping(value = "ingredient/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "ingredients/{id}", method = RequestMethod.DELETE)
     public Ingredients deleteIngredients(@PathVariable Long id){
         Ingredients existing = repo.findOne(id);
         repo.delete(existing);

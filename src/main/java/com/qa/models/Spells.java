@@ -1,9 +1,10 @@
 package com.qa.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Spells {
@@ -12,6 +13,18 @@ public class Spells {
     private Long id;
     private String spell;
     private String description;
+
+    @OneToMany
+    @JsonIgnore
+    private Set<Ingredients> containsIngredients = new HashSet<Ingredients>();
+
+    public Set<Ingredients> getContainsIngredients() {
+        return containsIngredients;
+    }
+
+    public void setContainsIngredients(Set<Ingredients> containsIngredients) {
+        this.containsIngredients = containsIngredients;
+    }
 
     public Long getId() {
         return id;

@@ -10,10 +10,19 @@ public class Ingredients {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String potion;
     private String ingredient1;
     private String ingredient2;
     private String ingredient3;
     private int amount;
+
+    public String getPotion() {
+        return potion;
+    }
+
+    public void setPotion(String potion) {
+        this.potion = potion;
+    }
 
     public String getIngredient1() {
         return ingredient1;
