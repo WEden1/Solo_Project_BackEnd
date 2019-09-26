@@ -10,11 +10,11 @@ public class Ingredients {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String potion;
     private String ingredient1;
     private String ingredient2;
     private String ingredient3;
-    private int amount;
 
     public String getPotion() {
         return potion;
@@ -56,11 +56,4 @@ public class Ingredients {
         this.id = id;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
 }

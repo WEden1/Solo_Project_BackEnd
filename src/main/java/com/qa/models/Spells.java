@@ -14,18 +14,6 @@ public class Spells {
     private String spell;
     private String description;
 
-    @OneToMany
-    @JsonIgnore
-    private Set<Ingredients> containsIngredients = new HashSet<Ingredients>();
-
-    public Set<Ingredients> getContainsIngredients() {
-        return containsIngredients;
-    }
-
-    public void setContainsIngredients(Set<Ingredients> containsIngredients) {
-        this.containsIngredients = containsIngredients;
-    }
-
     public Long getId() {
         return id;
     }

@@ -36,19 +36,27 @@ import static org.mockito.Mockito.when;
 
         @Test
         public void testGetAllIngredients(){
-            ArrayList<String> food = new ArrayList<String>();
             List<Ingredients> ingredientsList = new ArrayList<>();
             Ingredients ingredients = new Ingredients();
-            ingredients.setAmount(22);
-            ingredients.setIngredient1("dog");
-
+            ingredients.setIngredient1("black dog");
+            ingredients.setIngredient2("human foot");
+            ingredients.setIngredient3("newt eye");
             when(repo.findAll()).thenReturn(ingredientsList);
             ingredientsController.listAllIngredients();
         }
 
         @Test
-        public void testGetIngredients(){
+        public void testAddIngredients(){
             ArrayList<String> food = new ArrayList<String>();
+            Ingredients ingredient = new Ingredients();
+            ingredient.setIngredient2("cat");
+            ingredientsController.addIngredients(ingredient);
+            when(repo.exists(1L)).thenReturn(true);
+        }
+
+        @Test
+        public void testGetIngredients(){
+            ArrayList<String> foods = new ArrayList<String>();
             Ingredients ingredients = new Ingredients();
             ingredients.setIngredient1("apple");
 
@@ -66,14 +74,7 @@ import static org.mockito.Mockito.when;
             when(!repo.exists(1L)).thenReturn(true);
         }
 
-        @Test
-        public void testAddIngredients(){
-            ArrayList<String> food = new ArrayList<String>();
-            Ingredients ingredient = new Ingredients();
-            ingredient.setIngredient2("cat");
-            ingredientsController.addIngredients(ingredient);
-            when(repo.exists(1L)).thenReturn(true);
-        }
+
 
 
 

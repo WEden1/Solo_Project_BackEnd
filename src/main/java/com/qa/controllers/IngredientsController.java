@@ -20,8 +20,8 @@ public class IngredientsController {
     }
 
     @RequestMapping(value = "ingredients", method = RequestMethod.POST)
-    public Ingredients addIngredients(@RequestBody Ingredients ingredients){
-        return repo.saveAndFlush(ingredients);
+    public Ingredients addIngredients(@RequestBody Ingredients ingredientsPost){
+        return repo.saveAndFlush(ingredientsPost);
     }
 
     @RequestMapping(value = "ingredients/{id}", method = RequestMethod.GET)
@@ -35,4 +35,18 @@ public class IngredientsController {
         repo.delete(existing);
         return existing;
     }
+
+    @RequestMapping(value = "ingredients/{id}",method = RequestMethod.PUT)
+    public Ingredients updateEntry(@PathVariable Long id,@RequestBody Ingredients ingredients){
+        Ingredients existing = repo.findOne(id);
+        existing.setPotion(ingredients.getPotion());
+        existing.setIngredient1(ingredients.getIngredient1());
+        existing.setIngredient2(ingredients.getIngredient2());
+        existing.setIngredient3(ingredients.getIngredient3());
+        existing.setId(ingredients.getId());
+        repo.saveAndFlush(existing);
+        return existing;
+    }
+
+
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 public class SpellsController {
 
     @Autowired
@@ -20,19 +20,28 @@ public class SpellsController {
     }
 
     @RequestMapping(value = "spells", method = RequestMethod.POST)
-    public Spells addNote(@RequestBody Spells spells){
+    public Spells addSpell(@RequestBody Spells spells){
         return repo.saveAndFlush(spells);
     }
 
     @RequestMapping(value = "spells/{id}", method = RequestMethod.GET)
-    public Spells getNote(@PathVariable Long id){
+    public Spells getSpell(@PathVariable Long id){
         return repo.findOne(id);
     }
 
     @RequestMapping(value = "spells/{id}", method = RequestMethod.DELETE)
-    public Spells deleteNote(@PathVariable Long id){
+    public Spells deleteSpell(@PathVariable Long id){
         Spells existing = repo.findOne(id);
         repo.delete(existing);
+        return existing;
+    }
+
+    @RequestMapping(value = "spells/{id}",method = RequestMethod.PUT)
+    public Spells updateEntry(@PathVariable Long id,@RequestBody Spells spells){
+        Spells existing = repo.findOne(id);
+        existing.setSpell(spells.getSpell());
+        existing.setDescription(spells.getDescription());
+        repo.saveAndFlush(existing);
         return existing;
     }
 }
